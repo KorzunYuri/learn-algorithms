@@ -67,7 +67,6 @@ public class FindFirstWordWithTheMostLetterRepeats implements TaskSolver {
         //  provide some tests
         String sepWhiteSpace = " ";
         String sepSemiColon = ";";
-        List<Task> tasks = new ArrayList<>();
         checker.add(new Task(new TaskInput("words with no repeats ups!",    sepSemiColon), "repeats"));
         checker.add(new Task(new TaskInput(" 111 222 333 ",                 sepSemiColon), "111"));
         checker.add(new Task(new TaskInput("     ",                         sepSemiColon), ""));
