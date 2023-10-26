@@ -2,9 +2,22 @@ package com.yurykorzun.learn.algorithms.java;
 
 import org.junit.jupiter.api.Assertions;
 
-public abstract class TaskUtils {
+import java.util.ArrayList;
+import java.util.List;
 
-    public static void check(TaskSolver solver, TaskCheck check) {
+public class TaskChecker {
+
+    private List<Task> tasks = new ArrayList<>();
+
+    public void add(Task task) {
+        tasks.add(task);
+    }
+
+    public void checkAll(TaskSolver solver) {
+        tasks.forEach(task -> check(solver, task));
+    }
+
+    public static void check(TaskSolver solver, Task check) {
         String output = solver.solve(check.getInput().getArgs());
         Assertions.assertEquals(check.getExpectedOutput(), output);
         System.out.printf(

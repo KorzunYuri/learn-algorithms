@@ -1,9 +1,9 @@
 package com.yurykorzun.learn.algorithms.java.strings;
 
-import com.yurykorzun.learn.algorithms.java.TaskCheck;
+import com.yurykorzun.learn.algorithms.java.Task;
 import com.yurykorzun.learn.algorithms.java.TaskInput;
 import com.yurykorzun.learn.algorithms.java.TaskSolver;
-import com.yurykorzun.learn.algorithms.java.TaskUtils;
+import com.yurykorzun.learn.algorithms.java.TaskChecker;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,16 +62,17 @@ public class FindFirstWordWithTheMostLetterRepeats implements TaskSolver {
 
     public static void main(String[] args) {
 
-        TaskSolver solver = new FindFirstWordWithTheMostLetterRepeats();
-        String sepWhiteSpace = " ";
-        String sepSemiColon = ";";
+        TaskChecker checker = new TaskChecker();
 
         //  provide some tests
-        List<TaskCheck> tasks = new ArrayList<>();
-        tasks.add(new TaskCheck(new TaskInput("words with no repeats ups!", sepSemiColon), "repeats"));
-        tasks.add(new TaskCheck(new TaskInput(" 111 222 333 ", sepSemiColon), "111"));
-        tasks.add(new TaskCheck(new TaskInput("     ", sepSemiColon), ""));
+        String sepWhiteSpace = " ";
+        String sepSemiColon = ";";
+        List<Task> tasks = new ArrayList<>();
+        checker.add(new Task(new TaskInput("words with no repeats ups!",    sepSemiColon), "repeats"));
+        checker.add(new Task(new TaskInput(" 111 222 333 ",                 sepSemiColon), "111"));
+        checker.add(new Task(new TaskInput("     ",                         sepSemiColon), ""));
 
-        tasks.forEach(task -> TaskUtils.check(solver, task));
+        TaskSolver solver = new FindFirstWordWithTheMostLetterRepeats();
+        checker.checkAll(solver);
     }
 }

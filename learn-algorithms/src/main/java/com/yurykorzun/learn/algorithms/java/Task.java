@@ -2,11 +2,10 @@ package com.yurykorzun.learn.algorithms.java;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.junit.jupiter.api.Assertions;
 
 @AllArgsConstructor
 @Getter
-public class TaskCheck {
+public class Task {
     TaskInput input;
     private String expectedOutput;
 }
