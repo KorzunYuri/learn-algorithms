@@ -81,7 +81,7 @@ public class Solver2 implements TaskSolver {
                     output = candidate;
                     curCandidateLength = candidate.length();
                     if (curCandidateLength == charSet.length()) {
-                        //System.out.printf("%s iterations %n", actionsCounter);
+                        System.out.printf("%s iterations %n", actionsCounter);
                         return output;
                     }
                 }
@@ -92,7 +92,7 @@ public class Solver2 implements TaskSolver {
             actionsCounter++;
         }
 
-        //System.out.printf("%s iterations %n", actionsCounter);
+        System.out.printf("%s iterations %n", actionsCounter);
 
         return output;
     }

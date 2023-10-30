@@ -14,21 +14,27 @@ public class TaskChecker {
     }
 
     public void checkAll(TaskSolver solver) {
-        tasks.forEach(task -> check(solver, task));
+        System.out.println("======================");
+        System.out.printf("%s%n", solver.getClass().getName());
+        tasks.forEach(task -> {
+            System.out.println("----------------------");
+            check(solver, task);
+        });
+        System.out.println("======================");
     }
 
-    public static void check(TaskSolver solver, Task check) {
+    public void check(TaskSolver solver, Task check) {
         String output = solver.solve(check.getInput().getArgs());
         Assertions.assertEquals(check.getExpectedOutput(), output);
         System.out.printf(
-            "All good:" +
-                "\nclass:  %s" +
-                "\ninput:  '%s'" +
-                "\noutput: '%s'" +
-                "\n",
-            solver.getClass().getSimpleName(),
-            check.getInput().getInputString(),
-            output);
+                "All good:" +
+                        "\nclass:  %s" +
+                        "\ninput:  '%s'" +
+                        "\noutput: '%s'" +
+                        "\n",
+                solver.getClass().getSimpleName(),
+                check.getInput().getInputString(),
+                output);
     }
 
 }
