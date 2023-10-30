@@ -1,13 +1,11 @@
 package com.yurykorzun.learn.algorithms.java.strings;
 
 import com.yurykorzun.learn.algorithms.java.Task;
+import com.yurykorzun.learn.algorithms.java.TaskChecker;
 import com.yurykorzun.learn.algorithms.java.TaskInput;
 import com.yurykorzun.learn.algorithms.java.TaskSolver;
-import com.yurykorzun.learn.algorithms.java.TaskChecker;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -55,7 +53,7 @@ public class FindFirstWordWithTheMostLetterRepeats implements TaskSolver {
                     }
                 }
             }
-            lastLetterPos += 1;
+            lastLetterPos++;
         }
         return output;
     }
