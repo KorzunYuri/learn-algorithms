@@ -1,19 +1,19 @@
-package com.yurykorzun.learn.algorithms.java;
+package com.yurykorzun.learn.algorithms.java.utils.base;
 
 import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskChecker {
+public class TaskChecker<I, R> {
 
-    private List<Task> tasks = new ArrayList<>();
+    private List<Task<I, R>> tasks = new ArrayList<>();
 
-    public void add(Task task) {
+    public void add(Task<I, R> task) {
         tasks.add(task);
     }
 
-    public void checkAll(TaskSolver solver) {
+    public void checkAll(TaskSolver<I, R> solver) {
         System.out.println("======================");
         System.out.printf("%s%n", solver.getClass().getName());
         tasks.forEach(task -> {
@@ -23,8 +23,8 @@ public class TaskChecker {
         System.out.println("======================");
     }
 
-    public void check(TaskSolver solver, Task check) {
-        String output = solver.solve(check.getInput().getArgs());
+    public void check(TaskSolver<I, R> solver, Task<I, R> check) {
+        R output = solver.solve(check.getInput().getArgs());
         Assertions.assertEquals(check.getExpectedOutput(), output);
         System.out.printf(
                 "All good:" +
@@ -33,7 +33,7 @@ public class TaskChecker {
                         "\noutput: '%s'" +
                         "\n",
                 solver.getClass().getSimpleName(),
-                check.getInput().getInputString(),
+                check.getInput().inputToString(),
                 output);
     }
 

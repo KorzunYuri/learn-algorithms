@@ -1,10 +1,10 @@
 package com.yurykorzun.learn.algorithms.java.strings;
 
-import com.yurykorzun.learn.algorithms.java.Task;
-import com.yurykorzun.learn.algorithms.java.TaskChecker;
-import com.yurykorzun.learn.algorithms.java.TaskInput;
 import com.yurykorzun.learn.algorithms.java.strings.charsetwindow.Solver1;
 import com.yurykorzun.learn.algorithms.java.strings.charsetwindow.Solver2;
+import com.yurykorzun.learn.algorithms.java.utils.base.Task;
+import com.yurykorzun.learn.algorithms.java.utils.base.TaskChecker;
+import com.yurykorzun.learn.algorithms.java.utils.input.StringTaskInput;
 
 /**
  *  input - array of TWO strings:
@@ -17,23 +17,21 @@ import com.yurykorzun.learn.algorithms.java.strings.charsetwindow.Solver2;
 public class FindShortestSubstringContainingSetOfLetters {
 
     public static void main(String[] args) {
-        TaskChecker checker = new TaskChecker();
+        TaskChecker<String, String> checker = new TaskChecker<>();
 
         //  provide some tests
         String sepWhiteSpace = " ";
         String sepSemiColon = ";";
-        checker.add(new Task(new TaskInput("avaajaav aav",              sepWhiteSpace), "ava"));
-        checker.add(new Task(new TaskInput("abcdefja abca",             sepWhiteSpace), "abcdefja"));
-        checker.add(new Task(new TaskInput("abcabc acb",                sepWhiteSpace), "abc"));
-        checker.add(new Task(new TaskInput("aavvaabbaavvbb abvabva",    sepWhiteSpace), "avvaabb"));
-        checker.add(new Task(new TaskInput("abcabcabcabcaaabbba aaabbb",sepWhiteSpace), "aaabbb"));
-        checker.add(new Task(new TaskInput("abcde edcba",               sepWhiteSpace), "abcde"));
+        checker.add(new Task<>(new StringTaskInput("avaajaav aav",              sepWhiteSpace), "ava"));
+        checker.add(new Task<>(new StringTaskInput("abcdefja abca",             sepWhiteSpace), "abcdefja"));
+        checker.add(new Task<>(new StringTaskInput("abcabc acb",                sepWhiteSpace), "abc"));
+        checker.add(new Task<>(new StringTaskInput("aavvaabbaavvbb abvabva",    sepWhiteSpace), "avvaabb"));
+        checker.add(new Task<>(new StringTaskInput("abcabcabcabcaaabbba aaabbb",sepWhiteSpace), "aaabbb"));
+        checker.add(new Task<>(new StringTaskInput("abcde edcba",               sepWhiteSpace), "abcde"));
 
         checker.checkAll(new Solver1());
         checker.checkAll(new Solver2());
     }
-
-
 }
 
 

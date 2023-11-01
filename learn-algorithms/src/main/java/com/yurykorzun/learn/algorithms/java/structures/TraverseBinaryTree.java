@@ -1,11 +1,11 @@
 package com.yurykorzun.learn.algorithms.java.structures;
 
-import com.yurykorzun.learn.algorithms.java.Task;
-import com.yurykorzun.learn.algorithms.java.TaskChecker;
-import com.yurykorzun.learn.algorithms.java.TaskInput;
-import com.yurykorzun.learn.algorithms.java.TaskSolver;
+import com.yurykorzun.learn.algorithms.java.utils.base.Task;
+import com.yurykorzun.learn.algorithms.java.utils.base.TaskChecker;
+import com.yurykorzun.learn.algorithms.java.utils.base.TaskSolver;
+import com.yurykorzun.learn.algorithms.java.utils.input.StringTaskInput;
 
-public class TraverseBinaryTree implements TaskSolver {
+public class TraverseBinaryTree implements TaskSolver<String, String> {
 
     @Override
     public String solve(String[] tree) {
@@ -36,15 +36,15 @@ public class TraverseBinaryTree implements TaskSolver {
     }
 
     public static void main(String[] args) {
-        TaskChecker checker = new TaskChecker();
+        TaskChecker<String, String> checker = new TaskChecker<>();
 
         //  provide some tests
         String sepWhiteSpace = " ";
         String sepSemiColon = ";";
-        checker.add(new Task(new TaskInput("6 2 8 1 5 9 # # # 4 # # # # #", sepWhiteSpace), "6215489"));
-        checker.add(new Task(new TaskInput("1 2 9 3 6 0 3 4 5 7 8 1 2 4 5", sepWhiteSpace), "123456789012345"));
+        checker.add(new Task<>(new StringTaskInput("6 2 8 1 5 9 # # # 4 # # # # #", sepWhiteSpace), "6215489"));
+        checker.add(new Task<>(new StringTaskInput("1 2 9 3 6 0 3 4 5 7 8 1 2 4 5", sepWhiteSpace), "123456789012345"));
 
-        TaskSolver solver = new TraverseBinaryTree();
+        TaskSolver<String, String> solver = new TraverseBinaryTree();
         checker.checkAll(solver);
     }
 }

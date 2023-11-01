@@ -1,13 +1,11 @@
 package com.yurykorzun.learn.algorithms.java.strings;
 
-import com.yurykorzun.learn.algorithms.java.Task;
-import com.yurykorzun.learn.algorithms.java.TaskInput;
-import com.yurykorzun.learn.algorithms.java.TaskSolver;
-import com.yurykorzun.learn.algorithms.java.TaskChecker;
+import com.yurykorzun.learn.algorithms.java.utils.base.Task;
+import com.yurykorzun.learn.algorithms.java.utils.base.TaskChecker;
+import com.yurykorzun.learn.algorithms.java.utils.base.TaskSolver;
+import com.yurykorzun.learn.algorithms.java.utils.input.StringTaskInput;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,7 +13,7 @@ import java.util.Map;
  *  output: first word containing the most single digit repeats
  *      if there are no words containing repeating digits - return blank string
  */
-public class FindFirstWordWithTheMostLetterRepeats implements TaskSolver {
+public class FindFirstWordWithTheMostLetterRepeats implements TaskSolver<String, String> {
 
     @Override
     public String solve(String[] args) {
@@ -61,17 +59,16 @@ public class FindFirstWordWithTheMostLetterRepeats implements TaskSolver {
     }
 
     public static void main(String[] args) {
-
-        TaskChecker checker = new TaskChecker();
+        TaskChecker<String, String> checker = new TaskChecker<>();
 
         //  provide some tests
         String sepWhiteSpace = " ";
         String sepSemiColon = ";";
-        checker.add(new Task(new TaskInput("words with no repeats ups!",    sepSemiColon), "repeats"));
-        checker.add(new Task(new TaskInput(" 111 222 333 ",                 sepSemiColon), "111"));
-        checker.add(new Task(new TaskInput("     ",                         sepSemiColon), ""));
+        checker.add(new Task<>(new StringTaskInput("words with no repeats ups!",    sepSemiColon), "repeats"));
+        checker.add(new Task<>(new StringTaskInput(" 111 222 333 ",                 sepSemiColon), "111"));
+        checker.add(new Task<>(new StringTaskInput("     ",                         sepSemiColon), ""));
 
-        TaskSolver solver = new FindFirstWordWithTheMostLetterRepeats();
+        TaskSolver<String, String> solver = new FindFirstWordWithTheMostLetterRepeats();
         checker.checkAll(solver);
     }
 }

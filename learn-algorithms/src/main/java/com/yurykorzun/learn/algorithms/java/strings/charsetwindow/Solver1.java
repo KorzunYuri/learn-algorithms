@@ -1,12 +1,12 @@
 package com.yurykorzun.learn.algorithms.java.strings.charsetwindow;
 
-import com.yurykorzun.learn.algorithms.java.TaskSolver;
+import com.yurykorzun.learn.algorithms.java.utils.base.TaskSolver;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solver1 implements TaskSolver {
+public class Solver1 implements TaskSolver<String, String> {
 
     @Override
     public String solve(String[] args) {

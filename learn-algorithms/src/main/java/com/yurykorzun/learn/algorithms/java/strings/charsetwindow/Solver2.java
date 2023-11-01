@@ -1,6 +1,6 @@
 package com.yurykorzun.learn.algorithms.java.strings.charsetwindow;
 
-import com.yurykorzun.learn.algorithms.java.TaskSolver;
+import com.yurykorzun.learn.algorithms.java.utils.base.TaskSolver;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  *  solution is optimized - we always decrease window size, and we stop searching when solution is of minimal possible size
  */
-public class Solver2 implements TaskSolver {
+public class Solver2 implements TaskSolver<String, String> {
 
     @Override
     public String solve(String[] args) {
